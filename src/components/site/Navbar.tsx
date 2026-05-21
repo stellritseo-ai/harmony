@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Phone, Menu, X, ChevronDown, Heart } from "lucide-react";
+import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -42,9 +43,7 @@ export function Navbar() {
           }`}
         >
           <a href="#home" className="flex items-center gap-2.5 group">
-            <div className="relative grid place-items-center w-10 h-10 rounded-xl bg-brand-gradient shadow-glow">
-              <Heart className="w-5 h-5 text-white" fill="white" />
-            </div>
+            <img src={logo} alt="Harmony Residential Care logo" className="h-10 md:h-11 w-auto object-contain" />
             <div className="leading-tight">
               <div className="font-display font-bold text-[15px] md:text-base text-foreground">Harmony</div>
               <div className="text-[10px] md:text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Residential Care</div>
