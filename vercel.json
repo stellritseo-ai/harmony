@@ -1,7 +1,6 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "buildCommand": "vite build",
   "outputDirectory": "dist/client",
   "routes": [
     {
@@ -10,8 +9,8 @@
       "continue": true
     },
     {
-      "src": "/((?!api/).*)",
-      "dest": "/api/entry"
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
