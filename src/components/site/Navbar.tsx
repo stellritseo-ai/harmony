@@ -37,7 +37,7 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4">
         <div
-          className={`flex items-center justify-between rounded-2xl px-4 md:px-6 py-3 transition-all duration-500 ${scrolled ? "glass shadow-soft" : "bg-transparent"
+          className={`flex items-center justify-between rounded-2xl px-4 md:px-6 py-3 transition-all duration-500 ${scrolled ? "bg-white/70 backdrop-blur-xl border border-white/20 shadow-soft" : "bg-transparent border border-transparent"
             }`}
         >
           <a href="#home" className="flex items-center gap-2.5 group">
@@ -57,7 +57,7 @@ export function Navbar() {
                 Services <ChevronDown className="w-4 h-4 transition group-hover:rotate-180" />
               </button>
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-                <div className="glass rounded-2xl p-2 min-w-[240px] shadow-soft">
+                <div className="bg-white/75 backdrop-blur-xl border border-white/20 rounded-2xl p-2 min-w-[240px] shadow-soft">
                   {services.map((s) => (
                     <a
                       key={s.label}
@@ -90,7 +90,7 @@ export function Navbar() {
             </a>
             <button
               aria-label="Toggle menu"
-              className="lg:hidden grid place-items-center w-10 h-10 rounded-xl glass"
+              className="lg:hidden grid place-items-center w-10 h-10 rounded-xl bg-white/70 backdrop-blur-xl border border-white/20"
               onClick={() => setOpen((v) => !v)}
             >
               {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -99,7 +99,7 @@ export function Navbar() {
         </div>
 
         {open && (
-          <div className="lg:hidden mt-2 glass rounded-2xl p-3 shadow-soft animate-in fade-in slide-in-from-top-2">
+          <div className="lg:hidden mt-2 bg-white/75 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-soft animate-in fade-in slide-in-from-top-2">
             {[...navLinks.slice(0, 2), { label: "Services", href: "#services" }, ...navLinks.slice(2)].map((l) => (
               <a
                 key={l.label}
