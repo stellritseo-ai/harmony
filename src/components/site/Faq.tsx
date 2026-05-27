@@ -6,8 +6,8 @@ const faqs = [
   { q: "Does insurance or Medicare cover your services?", a: "Yes. We accept Medicare, Medicaid, and most private insurance plans. Our team can verify your benefits for free before you start care." },
   { q: "What areas do you serve?", a: "We primarily serve Round Rock, Austin, Georgetown, and surrounding Williamson County communities. Call us to confirm your address." },
   { q: "How quickly can care start?", a: "Usually within 48 hours of your initial assessment. In urgent cases, we can often begin the next day." },
-  { q: "Do I need a doctor's referral?", a: "A doctor's order is required for Medicare-covered skilled services. We can help coordinate with your physician." },
-  { q: "Can I receive both nursing and therapy at the same time?", a: "Absolutely. Many clients receive a combination of nursing, PT, OT, and speech therapy — all coordinated by our care team." },
+  { q: "Do I need a doctor's referral?", a: "A doctor's referral is required for skilled nursing services, particularly under DD waivers. For companionship and homemaker care, we can begin services immediately without a referral." },
+  { q: "Can I receive multiple services at the same time?", a: "Absolutely. Many clients receive a personalized combination of companionship, personal care, and DD waiver nursing to ensure comprehensive support at home." },
 ];
 
 export function Faq() {

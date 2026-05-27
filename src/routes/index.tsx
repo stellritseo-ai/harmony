@@ -15,9 +15,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Harmony Residential Care LLC — Trusted Home Health Care in Round Rock, TX" },
-      { name: "description", content: "20 years of compassionate in-home nursing, physical therapy, speech therapy, occupational therapy, and medical social services across Round Rock, Austin, and Georgetown." },
+      { name: "description", content: "20 years of trusted companionship, home maker personal care, shared living, DD waiver nursing, Participate-directed HPC, and medication administration across Round Rock, Austin, and Georgetown." },
       { property: "og:title", content: "Harmony Residential Care LLC — Trusted Home Health Care" },
-      { property: "og:description", content: "Skilled nursing and therapy at home for seniors and individuals with disabilities in Central Texas." },
+      { property: "og:description", content: "Trusted companionship, home maker personal care, shared living, DD waiver nursing, Participate-directed HPC, and medication administration for seniors and individuals with disabilities in Central Texas." },
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: "/" }],

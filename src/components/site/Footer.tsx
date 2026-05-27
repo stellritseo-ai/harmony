@@ -16,7 +16,7 @@ export function Footer() {
               </div>
             </div>
             <p className="mt-4 text-sm text-white/80 leading-relaxed">
-              Compassionate, medically-led home healthcare for Round Rock and Central Texas families since 2005.
+              Compassionate, trusted in-home care services for Round Rock and Central Texas families since 2005.
             </p>
             <div className="mt-5 flex items-center gap-3">
               <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-xl bg-white/15 grid place-items-center hover:bg-white hover:text-primary transition">
@@ -40,7 +40,7 @@ export function Footer() {
           <div>
             <h4 className="font-display font-bold mb-4">Services</h4>
             <ul className="space-y-2.5 text-sm text-white/80">
-              {["Nursing Services", "Physical Therapy", "Speech Therapy", "Occupational Therapy", "Medical Social Services"].map((s) => (
+              {["Companionship", "Home Maker Personal Care", "Shared Living", "DD Waiver Nursing", "Participate-Directed HPC", "Medication Administration"].map((s) => (
                 <li key={s}><a href="#services" className="hover:text-white transition story-link">{s}</a></li>
               ))}
             </ul>

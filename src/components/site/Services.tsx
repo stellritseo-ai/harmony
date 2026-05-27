@@ -1,75 +1,74 @@
 import { useMemo, useState } from "react";
-import { Stethoscope, Activity, MessageSquare, HandHelping, HeartHandshake, ArrowRight, Search, LayoutGrid } from "lucide-react";
+import { Stethoscope, HandHelping, HeartHandshake, ArrowRight, LayoutGrid, Home, UserCheck, Pill } from "lucide-react";
 import { Reveal } from "./Reveal";
-import svcNursing from "@/assets/svc-nursing.jpg";
-import svcPhysical from "@/assets/svc-physical.jpg";
-import svcSpeech from "@/assets/svc-speech.jpg";
-import svcOccupational from "@/assets/svc-occupational.jpg";
-import svcSocial from "@/assets/svc-social.jpg";
+import svcCompanionship from "@/assets/svc-companionship.png";
+import svcPersonalCare from "@/assets/svc-personal-care.png";
+import svcSharedLiving from "@/assets/svc-shared-living.png";
+import svcWaiverNursing from "@/assets/svc-waiver-nursing.png";
+import svcDirectedHpc from "@/assets/svc-directed-hpc.png";
+import svcMedicationAdmin from "@/assets/svc-medication-admin.png";
 
 const services = [
   {
-    icon: Stethoscope,
-    image: svcNursing,
-    title: "Nursing Services",
-    category: "Nursing",
-    desc: "Unskilled in-home nursing — wound care, medication management, and post-hospital recovery by licensed RNs.",
-  },
-  {
-    icon: Activity,
-    image: svcPhysical,
-    title: "Physical Therapy",
-    category: "Physical Therapy",
-    desc: "Personalized therapy plans to restore mobility, reduce pain, and rebuild strength after surgery or injury.",
-  },
-  {
-    icon: MessageSquare,
-    image: svcSpeech,
-    title: "Speech Therapy",
-    category: "Speech Therapy",
-    desc: "Regain communication and swallowing function after stroke, brain injury, or neurological conditions.",
+    icon: HeartHandshake,
+    image: svcCompanionship,
+    title: "Companionship",
+    category: "Companionship",
+    desc: "Providing friendly social interaction, emotional support, and active engagement to help individuals live happy, connected lives at home.",
   },
   {
     icon: HandHelping,
-    image: svcOccupational,
-    title: "Occupational Therapy",
-    category: "Occupational Therapy",
-    desc: "Relearn daily living skills — dressing, cooking, bathing — to maximize independence and safety at home.",
+    image: svcPersonalCare,
+    title: "Home Maker Personal Care",
+    category: "Home Maker Personal Care",
+    desc: "Dedicated support for essential daily routines — including nutritious meal prep, safe mobility, light housekeeping, and grooming.",
   },
   {
-    icon: HeartHandshake,
-    image: svcSocial,
-    title: "Medical Social Services",
-    category: "Medical Social Services",
-    desc: "Emotional counseling, resource coordination, and family support for navigating complex health journeys.",
+    icon: Home,
+    image: svcSharedLiving,
+    title: "Shared Living",
+    category: "Shared Living",
+    desc: "A warm, family-centered arrangement pairing individuals with host providers to share experiences and build lifelong relationships.",
+  },
+  {
+    icon: Stethoscope,
+    image: svcWaiverNursing,
+    title: "DD Waiver Nursing",
+    category: "DD Waiver Nursing",
+    desc: "Compassionate, specialized private-duty nursing care tailored to individuals under developmental disability waivers.",
+  },
+  {
+    icon: UserCheck,
+    image: svcDirectedHpc,
+    title: "Participate-Directed HPC",
+    category: "Participate-Directed HPC",
+    desc: "This waiver gives the person more control and authority to decide who provides their services and how those services are provided. The person must want to be in charge of staff employer responsibilities, however, they can receive assistance.",
+  },
+  {
+    icon: Pill,
+    image: svcMedicationAdmin,
+    title: "Medication Administration",
+    category: "Medication Administration",
+    desc: "Medication Administration - training and certification developed by DODD authorizes caregivers to perform a variety of tasks for people with many different medical needs. This has a very detailed 14 hour beginner training and an annual training is required.",
   },
 ];
 
 const categories = [
   "All",
-  "Nursing",
-  "Physical Therapy",
-  "Speech Therapy",
-  "Occupational Therapy",
-  "Medical Social Services",
+  "Companionship",
+  "Home Maker Personal Care",
+  "Shared Living",
+  "DD Waiver Nursing",
+  "Participate-Directed HPC",
+  "Medication Administration",
 ] as const;
 
 export function Services() {
   const [active, setActive] = useState<(typeof categories)[number]>("All");
-  const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return services.filter((s) => {
-      const matchCat = active === "All" || s.category === active;
-      const matchQ =
-        !q ||
-        s.title.toLowerCase().includes(q) ||
-        s.desc.toLowerCase().includes(q) ||
-        s.category.toLowerCase().includes(q);
-      return matchCat && matchQ;
-    });
-  }, [active, query]);
+    return services.filter((s) => active === "All" || s.category === active);
+  }, [active]);
 
   return (
     <section id="services" className="relative py-[50px] overflow-hidden">
@@ -86,43 +85,30 @@ export function Services() {
               Comprehensive <span className="text-brand-gradient">In-Home Care</span> Tailored to You
             </h2>
             <p className="mt-5 text-lg text-muted-foreground">
-              A complete spectrum of medically-led services delivered with warmth, dignity, and clinical excellence.
+              A complete spectrum of compassionate services delivered with warmth, dignity, and excellence.
             </p>
           </div>
         </Reveal>
 
         <Reveal>
-          <div className="mt-10 hidden lg:flex lg:flex-row lg:items-center lg:justify-between gap-4">
-            <div className="flex flex-wrap gap-2">
-              {categories.map((c) => {
-                const isActive = c === active;
-                return (
-                  <button
-                    key={c}
-                    onClick={() => setActive(c)}
-                    className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all border ${isActive
-                      ? "bg-brand-gradient text-white border-transparent shadow-glow"
-                      : "glass text-foreground/75 border-white/40 hover:text-primary hover:border-primary/30"
-                      }`}
-                    aria-pressed={isActive}
-                  >
-                    {c === "All" && <LayoutGrid className="w-3.5 h-3.5" />}
-                    {c}
-                  </button>
-                );
-              })}
-            </div>
-            <div className="relative lg:w-72">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              <input
-                type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search services…"
-                aria-label="Search services"
-                className="w-full rounded-full glass border border-white/40 pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/80 focus:outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/20 transition"
-              />
-            </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-2">
+            {categories.map((c) => {
+              const isActive = c === active;
+              return (
+                <button
+                  key={c}
+                  onClick={() => setActive(c)}
+                  className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all border ${isActive
+                    ? "bg-brand-gradient text-white border-transparent shadow-glow"
+                    : "glass text-foreground/75 border-white/40 hover:text-primary hover:border-primary/30"
+                    }`}
+                  aria-pressed={isActive}
+                >
+                  {c === "All" && <LayoutGrid className="w-3.5 h-3.5" />}
+                  {c}
+                </button>
+              );
+            })}
           </div>
         </Reveal>
 
@@ -133,21 +119,6 @@ export function Services() {
             </Reveal>
           ))}
         </div>
-
-        {filtered.length === 0 && (
-          <div className="mt-10 text-center text-muted-foreground">
-            <p className="text-base">No services match your search.</p>
-            <button
-              onClick={() => {
-                setActive("All");
-                setQuery("");
-              }}
-              className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
-            >
-              Clear filters
-            </button>
-          </div>
-        )}
 
         {filtered.length > 0 && (
           <Reveal>

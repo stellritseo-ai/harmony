@@ -5,17 +5,17 @@ const testimonials = [
   {
     name: "Linda G.",
     city: "Round Rock",
-    text: "After my mother's hip surgery, the physical therapist from Harmony Residential Care came to our home three times a week. She was patient, professional, and mom loved her. I cannot recommend them enough.",
+    text: "After my mother's surgery, the home care provider from Harmony Residential Care came to help with daily routines. They were so patient, helping with dressing, meal prep, and kept her company. I cannot recommend them enough.",
   },
   {
     name: "James T.",
     city: "Austin",
-    text: "Their speech therapy helped my father speak clearly again after his stroke. The nurse was also wonderful at managing his medications. Truly a blessing.",
+    text: "Their DD Waiver nursing care helped my son tremendously. The nurse was wonderful at managing his complex medical needs and medications with so much warmth. Truly a blessing.",
   },
   {
     name: "Patricia M.",
     city: "Georgetown",
-    text: "I was nervous about hiring home health care for my aunt with dementia. The Medical Social Worker guided us through everything — from insurance to emotional support. Excellent service.",
+    text: "I was nervous about finding the right Shared Living program for my brother. Harmony guided us through every step and matched him with a fantastic host provider. Excellent support.",
   },
 ];
 

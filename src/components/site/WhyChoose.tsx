@@ -5,8 +5,8 @@ import whyImg from "@/assets/why-choose.jpg";
 
 const points = [
   { t: "20+ Years of Local Experience", d: "Two decades caring for Round Rock and Texas families." },
-  { t: "Licensed & Compassionate Team", d: "Vetted RNs, LPNs, and licensed therapists you can trust." },
-  { t: "Personalized Care Plans", d: "Plans built around your goals, schedule, and medical needs." },
+  { t: "Licensed & Compassionate Team", d: "Vetted caregivers, RNs, and dedicated coordinators you can trust." },
+  { t: "Personalized Care Plans", d: "Plans built around your goals, schedule, and individual needs." },
   { t: "No Long-Term Contracts", d: "Flexible, transparent service with no surprises." },
   { t: "Fast Intake & 24/7 Support", d: "Care can begin within 48 hours — often the next day." },
 ];

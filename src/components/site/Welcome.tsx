@@ -40,8 +40,8 @@ export function Welcome() {
             one live safely, comfortably, and with dignity — right at home.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
-            With a dedicated team of unskilled nurses, therapists, and medical social workers, we treat every patient
-            like family. Whether you need short-term rehabilitation or long-term support, we are here for you.
+            With a dedicated team of compassionate caregivers, nurses, and coordinators, we treat every individual
+            like family. Whether you need daily personal care, friendly companionship, shared living solutions, Participate-directed HPC, medication administration, or specialized nursing, we are here for you.
           </p>
 
           <div className="mt-8 grid grid-cols-3 gap-4">

@@ -12,11 +12,12 @@ const navLinks = [
 ];
 
 const services = [
-  { label: "Nursing", href: "#services" },
-  { label: "Physical Therapy", href: "#services" },
-  { label: "Speech Therapy", href: "#services" },
-  { label: "Occupational Therapy", href: "#services" },
-  { label: "Medical Social Services", href: "#services" },
+  { label: "Companionship", href: "#services" },
+  { label: "Home Maker Personal Care", href: "#services" },
+  { label: "Shared Living", href: "#services" },
+  { label: "DD Waiver Nursing", href: "#services" },
+  { label: "Participate-Directed HPC", href: "#services" },
+  { label: "Medication Administration", href: "#services" },
 ];
 
 export function Navbar() {

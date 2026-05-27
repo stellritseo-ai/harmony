@@ -48,8 +48,8 @@ export function Hero() {
               20 Years of <span className="text-brand-gradient">Trusted Home</span> Health Care in Round Rock
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-              Compassionate, professional care for seniors and individuals with disabilities. We bring nursing,
-              therapy, and social services to your doorstep — so you can heal and live independently at home.
+              Compassionate, professional care for seniors and individuals with disabilities. We bring premium companionship,
+              personal care, shared living, nursing, and Participate-directed HPC directly to your doorstep.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
