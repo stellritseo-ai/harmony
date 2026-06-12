@@ -8,7 +8,12 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
+import { Navbar } from "@/components/site/Navbar";
+import { Footer } from "@/components/site/Footer";
+import { MobileCta } from "@/components/site/MobileCta";
+
 import appCss from "../styles.css?url";
+import favicon from "@/assets/logo.png";
 
 function NotFoundComponent() {
   return (
@@ -72,19 +77,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Harmony Residential Care | Home Health & Personal Assistance" },
+      { name: "description", content: "Harmony Residential Care LLC provides skilled pediatric home health care and personal assistance services (PAS/PHC) in Round Rock, Austin, and Georgetown, Texas. Available 24/7." },
+      { name: "author", content: "Harmony Residential Care LLC" },
+      { property: "og:title", content: "Harmony Residential Care | Home Health & Personal Assistance" },
+      { property: "og:description", content: "Trusted pediatric home nursing and senior personal assistance care for Texas families. Speak directly to a nurse supervisor 24/7." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Harmony Residential Care | Home Health & Personal Assistance" },
+      { name: "twitter:description", content: "Trusted pediatric home nursing and senior personal assistance care for Texas families. Speak directly to a nurse supervisor 24/7." },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        href: favicon,
       },
     ],
   }),
@@ -113,7 +124,14 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="min-h-screen flex flex-col bg-background text-foreground">
+        <Navbar />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+        <MobileCta />
+      </div>
     </QueryClientProvider>
   );
 }

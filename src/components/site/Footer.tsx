@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Clock, Facebook, Globe } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
 
 export function Footer() {
@@ -31,8 +32,15 @@ export function Footer() {
           <div>
             <h4 className="font-display font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2.5 text-sm text-white/80">
-              {[{ l: "Home", h: "#home" }, { l: "Services", h: "#services" }, { l: "Why Choose Us", h: "#why" }, { l: "Contact", h: "#contact" }, { l: "Privacy Policy", h: "#" }].map((x) => (
-                <li key={x.l}><a href={x.h} className="hover:text-white transition story-link">{x.l}</a></li>
+              {[
+                { l: "Home", to: "/" },
+                { l: "About Us", to: "/about" },
+                { l: "Services", to: "/services" },
+                { l: "Why Choose Us", to: "/why-us" },
+                { l: "Testimonials", to: "/testimonials" },
+                { l: "Contact", to: "/contact" },
+              ].map((x) => (
+                <li key={x.l}><Link to={x.to as any} className="hover:text-white transition story-link">{x.l}</Link></li>
               ))}
             </ul>
           </div>
@@ -41,14 +49,17 @@ export function Footer() {
             <h4 className="font-display font-bold mb-4">Services</h4>
             <ul className="space-y-2.5 text-sm text-white/80">
               {[
-                "Pediatric Home Health Care",
-                "Personal Assistance (PAS)",
-                "Primary Home Care (PHC)",
-                "Extended Hour Nursing",
-                "Wound & Catheter Care",
-                "Daily Living Support"
+                { label: "Pediatric Care", to: "/pediatric-care" },
+                { label: "Personal Assistance (PAS / PHC)", to: "/personal-assistance" },
+                { label: "Extended Hour Nursing", to: "/pediatric-care" },
+                { label: "Wound & Catheter Care", to: "/pediatric-care" },
+                { label: "Daily Living Support", to: "/personal-assistance" }
               ].map((s) => (
-                <li key={s}><a href="#services" className="hover:text-white transition story-link">{s}</a></li>
+                <li key={s.label}>
+                  <Link to={s.to as any} className="hover:text-white transition story-link">
+                    {s.label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>

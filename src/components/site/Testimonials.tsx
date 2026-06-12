@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { Star, Quote } from "lucide-react";
 import { Reveal } from "./Reveal";
 
@@ -66,12 +67,12 @@ export function Testimonials() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <a
-            href="#contact"
+          <Link
+            to="/testimonials"
             className="inline-flex items-center gap-2 rounded-full bg-brand-gradient text-white px-6 py-3 font-semibold shadow-glow hover:scale-[1.03] transition"
           >
             Leave a Review
-          </a>
+          </Link>
         </div>
       </div>
     </section>

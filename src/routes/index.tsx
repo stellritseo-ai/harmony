@@ -1,5 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Navbar } from "@/components/site/Navbar";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Hero } from "@/components/site/Hero";
 import { Welcome } from "@/components/site/Welcome";
 import { Services } from "@/components/site/Services";
@@ -8,8 +7,6 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { Faq } from "@/components/site/Faq";
 import { Staff } from "@/components/site/Staff";
 import { Contact } from "@/components/site/Contact";
-import { Footer } from "@/components/site/Footer";
-import { MobileCta } from "@/components/site/MobileCta";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,22 +22,46 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+function SectionWrapper({ children, linkTo, linkText }: { children: React.ReactNode, linkTo?: string, linkText?: string }) {
+  return (
+    <div className="relative">
+      {children}
+      {linkTo && (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+          <Link
+            to={linkTo as any}
+            className="inline-flex items-center gap-2 rounded-full bg-white/90 backdrop-blur border border-primary/20 text-primary px-6 py-2.5 text-sm font-semibold hover:bg-primary hover:text-white transition shadow-soft"
+          >
+            {linkText || "Learn More"}
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <main>
-        <Hero />
-        <Welcome />
-        <Services />
-        <WhyChoose />
-        <Testimonials />
-        <Faq />
-        {/* <Staff /> */}
-        <Contact />
-      </main>
-      <Footer />
-      <MobileCta />
-    </div>
+    <>
+      <Hero />
+
+      <Welcome />
+
+
+      <Services />
+
+
+
+      <WhyChoose />
+
+
+
+      <Testimonials />
+
+
+      <Faq />
+      {/* <Staff /> */}
+      <Contact />
+    </>
   );
 }

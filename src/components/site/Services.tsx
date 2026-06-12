@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Stethoscope,
@@ -340,13 +341,13 @@ export function Services() {
                       </p>
                     </div>
 
-                    <a
-                      href="#contact"
+                    <Link
+                      to={activeTab === "pediatric" ? "/pediatric-care" : "/personal-assistance"}
                       className="shrink-0 inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-blue-50 px-6 py-4 rounded-2xl text-sm font-bold tracking-wide shadow-glow transition-all duration-300 hover:-translate-y-0.5"
                     >
-                      Inquire About Care
+                      Learn More
                       <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -365,22 +366,27 @@ export function Services() {
                       key={item.title}
                       variants={itemVariants}
                       whileHover={{ y: -3 }}
-                      className="glass hover:bg-primary rounded-2xl p-5 border border-white/50 hover:border-primary hover:shadow-glow transition-all duration-300 flex items-start gap-4 group cursor-pointer"
+                      className="glass hover:bg-primary rounded-2xl border border-white/50 hover:border-primary hover:shadow-glow transition-all duration-300 flex items-start group cursor-pointer"
                     >
-                      <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/60 border border-blue-100/30 flex items-center justify-center shrink-0 group-hover:bg-white group-hover:border-white/50 transition-all duration-300 group-hover:scale-105">
-                        <ItemIcon className="w-5 h-5 text-primary group-hover:text-primary transition-colors duration-300" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <span className="text-[10px] font-bold text-primary/80 group-hover:text-white/80 tracking-wider uppercase block mb-0.5 transition-colors duration-300">
-                          {item.detail}
-                        </span>
-                        <h4 className="font-bold text-sm md:text-base text-foreground group-hover:text-white leading-tight transition-colors duration-300 truncate">
-                          {item.title}
-                        </h4>
-                        <p className="text-[15px] text-muted-foreground group-hover:text-white/90 leading-relaxed mt-1.5 font-light transition-colors duration-300">
-                          {item.desc}
-                        </p>
-                      </div>
+                      <Link
+                        to={activeTab === "pediatric" ? "/pediatric-care" : "/personal-assistance"}
+                        className="flex items-start gap-4 w-full p-5"
+                      >
+                        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100/60 border border-blue-100/30 flex items-center justify-center shrink-0 group-hover:bg-white group-hover:border-white/50 transition-all duration-300 group-hover:scale-105">
+                          <ItemIcon className="w-5 h-5 text-primary group-hover:text-primary transition-colors duration-300" />
+                        </div>
+                        <div className="flex-1 min-w-0 text-left">
+                          <span className="text-[10px] font-bold text-primary/80 group-hover:text-white/80 tracking-wider uppercase block mb-0.5 transition-colors duration-300">
+                            {item.detail}
+                          </span>
+                          <h4 className="font-bold text-sm md:text-base text-foreground group-hover:text-white leading-tight transition-colors duration-300 truncate">
+                            {item.title}
+                          </h4>
+                          <p className="text-[15px] text-muted-foreground group-hover:text-white/90 leading-relaxed mt-1.5 font-light transition-colors duration-300">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </Link>
                     </motion.div>
                   );
                 })}
@@ -406,13 +412,13 @@ export function Services() {
               Our clinical directors are available to evaluate your loved one's specific medical and personal assistance needs and coordinate a custom plan of care.
             </p>
           </div>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="w-full md:w-auto shrink-0 inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-gradient text-white px-7 py-4.5 font-bold text-sm hover:shadow-glow hover:-translate-y-0.5 transition-all duration-300 relative z-10"
           >
             Schedule Free Assessment
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

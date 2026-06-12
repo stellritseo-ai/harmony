@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Phone, Calendar, Shield, Clock, Star, Heart, Sparkles } from "lucide-react";
 import heroImg from "@/assets/hero-nurse.jpg";
 import heroImg2 from "@/assets/hero2.png";
@@ -53,13 +54,13 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#contact"
+              <Link
+                to="/contact"
                 className="group inline-flex items-center gap-2 rounded-2xl bg-brand-gradient text-white px-6 py-4 font-semibold shadow-glow hover:scale-[1.03] hover:shadow-[0_25px_60px_-15px_rgba(14,87,239,0.6)] transition"
               >
                 <Calendar className="w-5 h-5" />
                 Schedule a Free Consultation
-              </a>
+              </Link>
               <a
                 href="tel:8307437043"
                 className="inline-flex items-center gap-2 rounded-2xl glass px-6 py-4 font-semibold text-foreground hover:shadow-soft hover:-translate-y-0.5 transition"
