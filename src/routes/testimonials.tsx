@@ -391,7 +391,7 @@ function TestimonialsPage() {
               Ready to Experience the Harmony Difference?
             </h3>
             <p className="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto font-body leading-relaxed">
-              These families found peace of mind, skilled care, and a partner they could trust. You can too.
+              These families found peace of mind, unskilled nurse care, and a partner they could trust. You can too.
             </p>
           </motion.div>
 

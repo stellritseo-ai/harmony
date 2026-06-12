@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Harmony Residential Care | Home Health & Personal Assistance" },
-      { name: "description", content: "Harmony Residential Care LLC provides skilled pediatric home health care and personal assistance services (PAS/PHC) in Round Rock, Austin, and Georgetown, Texas. Available 24/7." },
+      { name: "description", content: "Harmony Residential Care LLC provides unskilled pediatric home health care and personal assistance services (PAS/PHC) in Round Rock, Austin, and Georgetown, Texas. Available 24/7." },
       { name: "author", content: "Harmony Residential Care LLC" },
       { property: "og:title", content: "Harmony Residential Care | Home Health & Personal Assistance" },
       { property: "og:description", content: "Trusted pediatric home nursing and senior personal assistance care for Texas families. Speak directly to a nurse supervisor 24/7." },

@@ -24,7 +24,7 @@ export const Route = createFileRoute("/pediatric-care")({
   head: () => ({
     meta: [
       { title: "Pediatric Home Health Care & Shift Nursing | Harmony Residential Care" },
-      { name: "description", content: "Skilled private duty shift nursing (8-24 hours/day) for children with complex clinical needs in Central Texas. Certified in ventilator, trach, and G-tube care." },
+      { name: "description", content: "Unskilled private duty shift nursing (8-24 hours/day) for children with complex clinical needs in Central Texas. Certified in ventilator, trach, and G-tube care." },
       { property: "og:title", content: "Pediatric Care | Harmony Residential Care" },
       { property: "og:description", content: "Airway management, ventilator support, and enteral nutrition (G-Tube) shift nursing by expert pediatric clinical teams." },
     ],

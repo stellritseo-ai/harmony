@@ -110,7 +110,7 @@ function ContactPage() {
   const faqs = [
     {
       q: "Do I need a doctor's order to receive care?",
-      a: "For skilled nursing (pediatric home health), yes — we require a physician's order to initiate care. For Personal Assistance Services (PAS) or Primary Home Care (PHC) involving bathing, meals, and light housekeeping, a doctor's order is typically not needed. Call us and we will guide you through your specific case.",
+      a: "For unskilled nurse care (pediatric home health), yes — we require a physician's order to initiate care. For Personal Assistance Services (PAS) or Primary Home Care (PHC) involving bathing, meals, and light housekeeping, a doctor's order is typically not needed. Call us and we will guide you through your specific case.",
     },
     {
       q: "Do you accept Medicaid / insurance?",

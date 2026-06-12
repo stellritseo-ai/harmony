@@ -86,7 +86,7 @@ function AboutPage() {
             More Than 20 Years of Keeping Texas Families Together — <span className="text-brand">At Home.</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground font-body leading-relaxed max-w-3xl mx-auto">
-            Harmony Residential Care LLC provides skilled pediatric home health and personal assistance services with a simple belief: <strong className="text-foreground font-semibold">Nothing heals like home, and nothing matters like family.</strong>
+            Harmony Residential Care LLC provides unskilled pediatric home health and personal assistance services with a simple belief: <strong className="text-foreground font-semibold">Nothing heals like home, and nothing matters like family.</strong>
           </p>
         </motion.div>
       </section>
