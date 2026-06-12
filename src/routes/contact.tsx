@@ -43,6 +43,7 @@ const fadeInUp = {
 function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [faqOpen, setFaqOpen] = useState<number | null>(null);
+  const [loading, setLoading] = useState(false);
 
   // Form state
   const [fullName, setFullName] = useState("");
@@ -60,12 +61,50 @@ function ContactPage() {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate API request
-    setTimeout(() => {
-      setFormSubmitted(true);
-    }, 600);
+    setLoading(true);
+    
+    // Maps care types to display labels
+    const careLabels = careTypes.map((type) => {
+      if (type === "peds") return "Pediatric Home Health";
+      if (type === "pas") return "Personal Assistance Services (PAS)";
+      if (type === "phc") return "Primary Home Care (PHC)";
+      return "Not sure yet";
+    }).join(", ");
+
+    const data = {
+      name: fullName,
+      phone: phone,
+      email: email,
+      ageCategory: age,
+      careNeeded: careLabels,
+      urgency: urgency,
+      message: message,
+      preferredContact: contactMethod,
+    };
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/harmonyresicaretx@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        alert("There was an error sending your request. Please try again or call us directly.");
+      }
+    } catch (error) {
+      console.error("Error submitting contact page form:", error);
+      alert("There was an error sending your request. Please try again or call us directly.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const faqs = [
@@ -334,9 +373,10 @@ function ContactPage() {
                   <div className="space-y-4 pt-2">
                     <button
                       type="submit"
-                      className="w-full py-4 rounded-xl bg-brand-gradient text-white font-bold flex items-center justify-center gap-2 hover:opacity-95 transition-opacity duration-300 shadow-glow"
+                      disabled={loading}
+                      className="w-full py-4 rounded-xl bg-brand-gradient text-white font-bold flex items-center justify-center gap-2 hover:opacity-95 transition-opacity duration-300 shadow-glow disabled:opacity-60"
                     >
-                      <Send className="w-4 h-4" /> Send Message
+                      <Send className="w-4 h-4" /> {loading ? "Sending Request..." : "Send Message"}
                     </button>
                     <p className="text-[10px] text-muted-foreground text-center font-body">
                       By submitting this form, you agree to be contacted by Harmony Residential Care LLC regarding your inquiry. We never share or sell your information.

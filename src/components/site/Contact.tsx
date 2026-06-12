@@ -4,6 +4,7 @@ import { Reveal } from "./Reveal";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
   return (
     <section id="contact" className="relative py-[50px] overflow-hidden">
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50/40 to-white" />
@@ -31,10 +32,41 @@ export function Contact() {
 
         <Reveal delay={120}>
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              setSent(true);
-              setTimeout(() => setSent(false), 4000);
+              setLoading(true);
+              const formData = new FormData(e.currentTarget);
+              const data = {
+                name: formData.get("name"),
+                phone: formData.get("phone"),
+                email: formData.get("email"),
+                service: formData.get("service"),
+                message: formData.get("message"),
+              };
+              
+              try {
+                const response = await fetch("https://formsubmit.co/ajax/harmonyresicaretx@gmail.com", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                  },
+                  body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                  setSent(true);
+                  e.currentTarget.reset();
+                  setTimeout(() => setSent(false), 5000);
+                } else {
+                  alert("There was an error sending your message. Please try again or call us directly.");
+                }
+              } catch (error) {
+                console.error("Error submitting form:", error);
+                alert("There was an error sending your message. Please try again or call us directly.");
+              } finally {
+                setLoading(false);
+              }
             }}
             className="glass rounded-[2rem] p-6 md:p-8 shadow-glow"
           >
@@ -47,7 +79,7 @@ export function Contact() {
             </div>
             <div className="mt-4">
               <label className="block text-sm font-semibold text-foreground mb-2">Service Interested In</label>
-              <select required className="w-full rounded-2xl bg-white/80 border border-border px-4 py-3.5 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition">
+              <select name="service" required className="w-full rounded-2xl bg-white/80 border border-border px-4 py-3.5 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition">
                 <option value="">Select a service</option>
                 <option>Companionship</option>
                 <option>Home Maker Personal Care</option>
@@ -59,13 +91,14 @@ export function Contact() {
             </div>
             <div className="mt-4">
               <label className="block text-sm font-semibold text-foreground mb-2">Brief Message</label>
-              <textarea rows={4} required placeholder="Tell us a little about your needs…" className="w-full rounded-2xl bg-white/80 border border-border px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition resize-none" />
+              <textarea name="message" rows={4} required placeholder="Tell us a little about your needs…" className="w-full rounded-2xl bg-white/80 border border-border px-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition resize-none" />
             </div>
             <button
               type="submit"
-              className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-gradient text-white px-6 py-4 font-semibold shadow-glow hover:scale-[1.02] transition"
+              disabled={loading}
+              className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-gradient text-white px-6 py-4 font-semibold shadow-glow hover:scale-[1.02] transition disabled:opacity-60"
             >
-              <Send className="w-5 h-5" /> {sent ? "Message Sent — we'll be in touch!" : "Send Message"}
+              <Send className="w-5 h-5" /> {loading ? "Sending..." : sent ? "Message Sent — we'll be in touch!" : "Send Message"}
             </button>
             <p className="mt-3 text-xs text-muted-foreground text-center">Your information is private and never shared.</p>
           </form>
